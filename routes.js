@@ -18,27 +18,23 @@ const requestHandler= (req,resp)=>{
                 body.push(chunk);
             });//listen to event
             
-            req.on('end',()=>{
+             req.on('end',()=>{
                 const parsedBody=Buffer.concat(body).toString();
                 const message=parsedBody.split('=')[1];
                 fs.writeFile('message.txt',message,(err)=>{
                     resp.statusCode=302;
                     resp.setHeader('Location','/');
                     return resp.end();
-                });
-                //console.log(parsedBody); 
-            });
-           // fs.writeFileSync('message.txt','Dummy Data');
-           // resp.statusCode=302;
-           // resp.setHeader('Location','/');
-           // return resp.end();
+                });                
+            });       
     
-        }
-        resp.setHeader('Content-Type','text/html');
+        }    
+        //resp.setHeader('Content-Type','text/html');
         resp.write('<html><head><title>Enter Message</title></head>');
-        resp.write('<body><h1>yoyoyo</h1></body>');
+        resp.write('<body><h1>yoyoyozzzzzxxz</h1></body>');
         resp.write('</html>');
         return resp.end();
+    
     
 };
 
